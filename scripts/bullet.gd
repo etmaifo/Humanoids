@@ -1,7 +1,12 @@
 
 extends KinematicBody2D
 
+const SPEED = 1000
+
 var timer
+var direction = 1
+var velocity = Vector2(0, 0)
+
 
 func _ready():
 	timer = get_node("timer")
@@ -13,7 +18,11 @@ func _ready():
 	
 	
 func _fixed_process(delta):
-	pass
+	velocity.x = SPEED * direction
+	move(velocity * delta)
+	
+	if is_colliding():
+		queue_free()
 	
 	
 func _on_timeout():

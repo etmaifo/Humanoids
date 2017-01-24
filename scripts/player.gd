@@ -10,16 +10,21 @@ const RIGHT = "right"
 
 var velocity = Vector2(0, 0)
 var can_jump = false
+var can_shoot = true
 var direction = RIGHT
 var rect
 var x
 var y
 var left
 var right
+var gun_trigger
 
 var bullet_class = preload('res://scenes/bullet.tscn')
 
 func _ready():
+	gun_trigger = get_node("timer")
+	gun_trigger.connect("timeout", self, "_on_shot")
+	
 	var image = get_node("sprite").get_texture()
 	rect = image.get_size()
 	x = get_pos().x
@@ -53,21 +58,29 @@ func _input(event):
 	elif Input.is_action_pressed("move_right"):
 		velocity.x = SPEED
 		direction = RIGHT
-		
 	else:
 		velocity.x = 0
 		
 	if Input.is_action_pressed("jump") and can_jump:
 		velocity.y = JUMPHEIGHT
 		
-	if Input.is_action_pressed("shoot"):
+	if Input.is_action_pressed("shoot") and can_shoot:
 		var bullet = bullet_class.instance()
 		get_parent().add_child(bullet)
 		if direction == RIGHT:
-			bullet.set_pos(Vector2(get_pos().x + rect.width + 20, get_pos().y))
+			bullet.set_pos(Vector2(get_pos().x + rect.width, get_pos().y + 11))
+			bullet.direction = 1
 		elif direction == LEFT:
-			bullet.set_pos(Vector2(get_pos().x - 20, get_pos().y))
+			bullet.set_pos(Vector2(get_pos().x, get_pos().y + 11))
+			bullet.direction = -1
 			
+		can_shoot = false
+		gun_trigger.set_wait_time(0.1)
+		gun_trigger.start()
+	
+
+func _on_shot():
+	can_shoot = true
 
 
 
