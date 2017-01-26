@@ -42,7 +42,7 @@ texture = ExtResource( 2 )
 
 [node name="bottom" type="Sprite" parent="."]
 
-transform/pos = Vector2( 0, 20 )
+transform/pos = Vector2( 0, 5 )
 texture = ExtResource( 3 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
