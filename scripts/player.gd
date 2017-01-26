@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 
 const GRAVITY = 40
-const SPEED = 200
+const SPEED = 150
 const JUMPHEIGHT = -600
 const LEFT = "left"
 const RIGHT = "right"
@@ -77,6 +77,7 @@ func _input(event):
 		can_shoot = false
 		gun_trigger.set_wait_time(0.1)
 		gun_trigger.start()
+		
 	
 
 func _on_shot():

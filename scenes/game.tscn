@@ -32,7 +32,7 @@ drag_margin/bottom = 0.2
 
 [node name="player" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 30.6378, 314.728 )
+transform/pos = Vector2( 27.8169, 77.8267 )
 
 [node name="hud" parent="." instance=ExtResource( 4 )]
 

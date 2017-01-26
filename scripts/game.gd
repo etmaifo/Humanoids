@@ -11,6 +11,7 @@ func _ready():
 	camera = get_node("camera")
 
 	set_fixed_process(true)
+	set_process_input(true)
 	
 
 func _fixed_process(delta):
@@ -29,5 +30,9 @@ func _fixed_process(delta):
 		camy = 0
 	camera.set_pos(Vector2(camx, camy))
 	
+	
+func _input(event):
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().quit()
 
 

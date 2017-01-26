@@ -13,7 +13,7 @@ var opacity = 1
 func _ready():
 	timer = get_node("timer")
 	timer.connect("timeout", self, "_on_timeout")
-	timer.set_wait_time(10)
+	timer.set_wait_time(1)
 	timer.start()
 	
 	image = get_node("sprite")
@@ -21,7 +21,6 @@ func _ready():
 	randomize()
 	x = rand_range(0, 200)
 	y = rand_range(0, 200)
-	print(x, y)
 	
 	randx = random_neg()
 	randy = random_neg()
