@@ -24,7 +24,7 @@ func _fixed_process(delta):
 	else:
 		camx = 0
 		
-	if playery > 360 or playery < 90:
+	if playery < 90:
 		camy = playery - 180
 	else:
 		camy = 0

@@ -1,35 +1,68 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=24 format=1]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
-[ext_resource path="res://images/player.png" type="Texture" id=2]
+[ext_resource path="res://images/Players/Player Red/playerRed_dead.png" type="Texture" id=2]
+[ext_resource path="res://images/Players/Player Red/playerRed_duck.png" type="Texture" id=3]
+[ext_resource path="res://images/Players/Player Red/playerRed_fall.png" type="Texture" id=4]
+[ext_resource path="res://images/Players/Player Red/playerRed_hit.png" type="Texture" id=5]
+[ext_resource path="res://images/Players/Player Red/playerRed_roll.png" type="Texture" id=6]
+[ext_resource path="res://images/Players/Player Red/playerRed_stand.png" type="Texture" id=7]
+[ext_resource path="res://images/Players/Player Red/playerRed_swim1.png" type="Texture" id=8]
+[ext_resource path="res://images/Players/Player Red/playerRed_swim2.png" type="Texture" id=9]
+[ext_resource path="res://images/Players/Player Red/playerRed_switch1.png" type="Texture" id=10]
+[ext_resource path="res://images/Players/Player Red/playerRed_switch2.png" type="Texture" id=11]
+[ext_resource path="res://images/Players/Player Red/playerRed_up1.png" type="Texture" id=12]
+[ext_resource path="res://images/Players/Player Red/playerRed_up2.png" type="Texture" id=13]
+[ext_resource path="res://images/Players/Player Red/playerRed_up3.png" type="Texture" id=14]
+[ext_resource path="res://images/Players/Player Red/playerRed_walk1.png" type="Texture" id=15]
+[ext_resource path="res://images/Players/Player Red/playerRed_walk2.png" type="Texture" id=16]
+[ext_resource path="res://images/Players/Player Red/playerRed_walk3.png" type="Texture" id=17]
+[ext_resource path="res://images/Players/Player Red/playerRed_walk4.png" type="Texture" id=18]
+[ext_resource path="res://images/Players/Player Red/playerRed_walk5.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10.9915, 10.9971 )
+extents = Vector2( 10, 12 )
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "idle"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("animsprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ 5, 5 ] }
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "walk"
+length = 0.3
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("animsprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 14, 17 ] }
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ], "loop":true, "name":"default", "speed":5.0 } ]
 
 [node name="player" type="KinematicBody2D"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 11, 11 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-
-[node name="sprite" type="Sprite" parent="."]
-
-texture = ExtResource( 2 )
-centered = false
-
-[node name="collider" type="CollisionShape2D" parent="."]
-
-transform/pos = Vector2( 11, 11 )
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
 
 [node name="timer" type="Timer" parent="."]
 
@@ -37,5 +70,30 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="anim" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 4 )
+anims/walk = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "walk"
+
+[node name="animsprite" type="AnimatedSprite" parent="."]
+
+transform/scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 14
 
 
