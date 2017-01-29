@@ -1,12 +1,17 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/bg.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/ParallaxBackground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/hud.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/level1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/plantBlue.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/fenceBroken.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/fenceLeft.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/fenceMid.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/plantBlue_02.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/fenceRight.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/level1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/plantBlue.tscn" type="PackedScene" id=12]
 
 [node name="game" type="Node2D"]
 
@@ -31,7 +36,7 @@ limit/bottom = 10000000
 drag_margin/h_enabled = true
 drag_margin/v_enabled = true
 smoothing/enable = true
-smoothing/speed = 4.0
+smoothing/speed = 3.0
 drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
@@ -39,14 +44,53 @@ drag_margin/bottom = 0.2
 
 [node name="hud" parent="." instance=ExtResource( 4 )]
 
-[node name="level1" parent="." instance=ExtResource( 5 )]
+[node name="background" type="Node2D" parent="."]
 
-[node name="player" parent="." instance=ExtResource( 6 )]
+[node name="fenceBroken" parent="background" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 196.577, 308.947 )
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="fenceLeft" parent="background" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1110.56, 277.191 )
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="fenceMid" parent="background" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1142.26, 277.195 )
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="plantBlue_02" parent="background" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 510.632, 312.733 )
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="fenceRight" parent="background" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1174.08, 277.233 )
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="level1" parent="." instance=ExtResource( 10 )]
+
+[node name="player" parent="." instance=ExtResource( 11 )]
 
 transform/pos = Vector2( 25.6841, 210.485 )
 
-[node name="plantBlue" parent="." instance=ExtResource( 7 )]
+[node name="foreground" type="Node2D" parent="."]
 
-transform/pos = Vector2( 267.081, 297.213 )
+editor/display_folded = true
+z/z = 1
+
+[node name="plantBlue" parent="foreground" instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 269.413, 290.948 )
+transform/scale = Vector2( 1.5, 1.5 )
+
+[node name="plantBlue_3" parent="foreground" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 712.019, 308.592 )
+transform/scale = Vector2( 0.7, 0.7 )
+flip_h = true
 
 
