@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/bg.tscn" type="PackedScene" id=2]
@@ -7,11 +7,12 @@
 [ext_resource path="res://scenes/fenceBroken.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/fenceLeft.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/fenceMid.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/plantBlue_02.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/fenceRight.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/fenceRight.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/plantBlue_02.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/level1.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/plantBlue.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/plantBlue_04.tscn" type="PackedScene" id=13]
 
 [node name="game" type="Node2D"]
 
@@ -48,7 +49,7 @@ drag_margin/bottom = 0.2
 
 [node name="fenceBroken" parent="background" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 196.577, 308.947 )
+transform/pos = Vector2( 61.1269, 311.33 )
 transform/scale = Vector2( 0.5, 0.5 )
 
 [node name="fenceLeft" parent="background" instance=ExtResource( 6 )]
@@ -61,15 +62,83 @@ transform/scale = Vector2( 0.5, 0.5 )
 transform/pos = Vector2( 1142.26, 277.195 )
 transform/scale = Vector2( 0.5, 0.5 )
 
-[node name="plantBlue_02" parent="background" instance=ExtResource( 8 )]
+[node name="fenceMid1" parent="background" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 510.632, 312.733 )
+transform/pos = Vector2( 1174.27, 277.127 )
 transform/scale = Vector2( 0.5, 0.5 )
 
-[node name="fenceRight" parent="background" instance=ExtResource( 9 )]
+[node name="fenceMid2" parent="background" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 1174.08, 277.233 )
+transform/pos = Vector2( 1206.07, 277.129 )
 transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="fenceMid3" parent="background" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1237.43, 277.128 )
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="fenceMid4" parent="background" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1269.5, 277.128 )
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="fenceMid5" parent="background" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1301.37, 276.871 )
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="fenceBroken1" parent="background" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1332.14, 277.056 )
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="fenceRight" parent="background" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 1392.79, 277.557 )
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="plantBlue_02" parent="background" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 508.194, 316.147 )
+transform/scale = Vector2( 0.25, 0.25 )
+
+[node name="plantBlue_3" parent="background" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1024.46, 320.826 )
+transform/rot = 310.0
+transform/scale = Vector2( 0.25, 0.25 )
+
+[node name="plantBlue_4" parent="background" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 948.666, 316.343 )
+transform/scale = Vector2( 0.3, 0.3 )
+
+[node name="plantBlue_5" parent="background" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1155.1, 283.509 )
+transform/scale = Vector2( 0.3, 0.3 )
+
+[node name="plantBlue_7" parent="background" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1813.49, 253.188 )
+transform/scale = Vector2( 0.2, 0.2 )
+
+[node name="plantBlue_9" parent="background" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1525.43, 252.027 )
+transform/scale = Vector2( 0.3, 0.3 )
+
+[node name="plantBlue_8" parent="background" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1409.43, 255.476 )
+transform/rot = 30.0
+transform/scale = Vector2( 0.2, 0.2 )
+
+[node name="plantBlue_6" parent="background" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1167.29, 285.896 )
+transform/rot = 340.0
+transform/scale = Vector2( 0.2, 0.2 )
 
 [node name="level1" parent="." instance=ExtResource( 10 )]
 
@@ -79,18 +148,56 @@ transform/pos = Vector2( 25.6841, 210.485 )
 
 [node name="foreground" type="Node2D" parent="."]
 
-editor/display_folded = true
 z/z = 1
 
 [node name="plantBlue" parent="foreground" instance=ExtResource( 12 )]
 
-transform/pos = Vector2( 269.413, 290.948 )
-transform/scale = Vector2( 1.5, 1.5 )
+transform/pos = Vector2( 271.173, 298.43 )
 
-[node name="plantBlue_3" parent="foreground" instance=ExtResource( 8 )]
+[node name="plantBlue_3" parent="foreground" instance=ExtResource( 9 )]
 
-transform/pos = Vector2( 712.019, 308.592 )
-transform/scale = Vector2( 0.7, 0.7 )
+transform/pos = Vector2( 82.5006, 318.007 )
+transform/scale = Vector2( 0.2, 0.2 )
 flip_h = true
+
+[node name="plantBlue 2" parent="foreground" instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 1901.39, 234.158 )
+
+[node name="plantBlue3" parent="foreground" instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 1573.41, 79.0335 )
+transform/rot = 180.0
+
+[node name="plantBlue6" parent="foreground" instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 2117.52, 132.975 )
+transform/scale = Vector2( 0.2, 0.2 )
+flip_h = true
+flip_v = true
+
+[node name="plantBlue4" parent="foreground" instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 1232.83, 74.0621 )
+transform/rot = 180.0
+transform/scale = Vector2( 0.5, 0.5 )
+flip_h = true
+
+[node name="plantBlue5" parent="foreground" instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 1770.88, 68.5268 )
+transform/rot = 180.0
+transform/scale = Vector2( 0.25, 0.25 )
+flip_h = true
+
+[node name="plantBlue_04" parent="foreground" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 2778.72, 243.175 )
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="plantBlue_04 2" parent="foreground" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 320.479, 314.66 )
+transform/scale = Vector2( 0.25, 0.25 )
 
 
