@@ -4,11 +4,14 @@ extends Node2D
 var player
 var ground
 var camera
+var overlay
 
 func _ready():
 	player = get_node("player")
 	ground = get_node("ground")
 	camera = get_node("camera")
+	overlay = get_node("overlayLayer/overlay")
+	overlay.animation.play_backwards("closeIn")
 
 	set_fixed_process(true)
 	set_process_input(true)

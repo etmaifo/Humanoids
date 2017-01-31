@@ -25,7 +25,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 12 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 
 resource/name = "idle"
 length = 0.2
@@ -37,9 +37,8 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ 5, 5 ] }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
-resource/name = "walk"
 length = 0.3
 loop = true
 step = 0.1
@@ -49,7 +48,7 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 14, 17 ] }
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=4]
 
 animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ], "loop":true, "name":"default", "speed":5.0 } ]
 
@@ -73,6 +72,7 @@ autostart = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+visibility/visible = false
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -82,8 +82,8 @@ _update_shape_index = 0
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/idle = SubResource( 4 )
-anims/walk = SubResource( 2 )
+anims/idle = SubResource( 2 )
+anims/walk = SubResource( 3 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -92,8 +92,8 @@ autoplay = "walk"
 [node name="animsprite" type="AnimatedSprite" parent="."]
 
 transform/scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 3 )
+frames = SubResource( 4 )
 animation = "default"
-frame = 14
+frame = 5
 
 

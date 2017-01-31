@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 
 const GRAVITY = 40
-const SPEED = 150
+const SPEED = 160
 const JUMPHEIGHT = -700
 const LEFT = "left"
 const RIGHT = "right"

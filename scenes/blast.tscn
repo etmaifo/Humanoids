@@ -31,6 +31,7 @@ script/script = ExtResource( 1 )
 
 [node name="sprite" type="Sprite" parent="."]
 
+visibility/visible = false
 visibility/opacity = 0.0
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )

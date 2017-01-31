@@ -1,0 +1,127 @@
+[gd_scene load_steps=25 format=1]
+
+[ext_resource path="res://scripts/enemyWalker.gd" type="Script" id=1]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_dead.png" type="Texture" id=2]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_duck.png" type="Texture" id=3]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_fall.png" type="Texture" id=4]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_hit.png" type="Texture" id=5]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_roll.png" type="Texture" id=6]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_stand.png" type="Texture" id=7]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_swim1.png" type="Texture" id=8]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_swim2.png" type="Texture" id=9]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_switch1.png" type="Texture" id=10]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_switch2.png" type="Texture" id=11]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_up1.png" type="Texture" id=12]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_up2.png" type="Texture" id=13]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_up3.png" type="Texture" id=14]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_walk1.png" type="Texture" id=15]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_walk2.png" type="Texture" id=16]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_walk3.png" type="Texture" id=17]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_walk4.png" type="Texture" id=18]
+[ext_resource path="res://images/Players/Player Blue/playerBlue_walk5.png" type="Texture" id=19]
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -8, 8, 8, 8, 8, 12, 8, 20, -8, 20 )
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "walk"
+length = 0.5
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("animsprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 13, 17 ] }
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 24, 20 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4, 12 )
+
+[node name="enemyWalker" type="KinematicBody2D"]
+
+transform/scale = Vector2( -1, 1 )
+input/pickable = false
+shapes/0/shape = SubResource( 8 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/walk = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "walk"
+
+[node name="animsprite" type="AnimatedSprite" parent="."]
+
+transform/scale = Vector2( 0.75, 0.75 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 15
+
+[node name="collider" type="CollisionPolygon2D" parent="."]
+
+build_mode = 0
+polygon = Vector2Array( -8, 20, 8, 20, 8, 12, 8, 8, -8, 8 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="hitarea" type="Area2D" parent="."]
+
+editor/display_folded = true
+input/pickable = true
+shapes/0/shape = SubResource( 7 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="hitcollider" type="CollisionShape2D" parent="hitarea"]
+
+shape = SubResource( 7 )
+trigger = false
+_update_shape_index = 0
+
+[node name="detector" type="Area2D" parent="."]
+
+transform/pos = Vector2( 32, 0 )
+input/pickable = true
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="collider" type="CollisionShape2D" parent="detector"]
+
+shape = SubResource( 6 )
+trigger = false
+_update_shape_index = 0
+
+

@@ -13,14 +13,4 @@ func _ready():
 		particle.set_pos(get_pos())
 		get_parent().add_child(particle)
 		
-		set_fixed_process(true)
-		
-
-func _fixed_process(delta):
-	if not animation.is_playing():
-		queue_free()
-		
-		
-
-
-
+	queue_free()

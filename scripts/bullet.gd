@@ -8,6 +8,7 @@ var direction = 1
 var velocity = Vector2(0, 0)
 
 var blast_class = preload('res://scenes/blast.tscn')
+var enemy = preload('res://scripts/enemyWalker.gd')
 
 
 func _ready():
