@@ -9,6 +9,7 @@ func _ready():
 	camera = get_node("camera")
 	overlay = get_node("overlayLayer/overlay")
 	overlay.animation.connect("finished", self, "_on_animation_finished")
+
 	
 	set_fixed_process(true)
 	set_process_input(true)
@@ -27,3 +28,4 @@ func _input(event):
 		
 func _on_animation_finished():
 	get_tree().change_scene('res://scenes/game.tscn')
+	

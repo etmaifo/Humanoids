@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 
 const GRAVITY = 40
-const SPEED = 160
+const SPEED = 200
 const JUMPHEIGHT = -700
 const LEFT = "left"
 const RIGHT = "right"
@@ -20,8 +20,10 @@ var right
 var gun_trigger
 var image
 var animation
+var dead = false
 
 var bullet_class = preload('res://scenes/bullet.tscn')
+var killerblock = preload('res://scripts/killerblock.gd')
 
 func _ready():
 	gun_trigger = get_node("timer")
@@ -36,12 +38,16 @@ func _ready():
 	
 	
 func _fixed_process(delta):
+	if dead:
+		set_fixed_process(false) # disable
 	velocity.y += GRAVITY
 	
 	var motion = velocity * delta
 	motion = move(motion)
 	
 	if is_colliding():
+		if (get_collider() extends killerblock):
+			dead = true
 		can_jump = true
 		var n = get_collision_normal()
 		motion = n.slide(motion)

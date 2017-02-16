@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/bg.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://scenes/overlay.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/boss.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/spawner.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/killerblock.tscn" type="PackedScene" id=18]
 
 [node name="game" type="Node2D"]
 
@@ -152,6 +153,7 @@ transform/pos = Vector2( 25.6841, 210.485 )
 
 [node name="foreground" type="Node2D" parent="."]
 
+editor/display_folded = true
 z/z = 1
 
 [node name="plantBlue" parent="foreground" instance=ExtResource( 11 )]
@@ -234,6 +236,7 @@ transform/pos = Vector2( 3868.41, 157.525 )
 
 [node name="overlayLayer" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -273,5 +276,36 @@ transform/pos = Vector2( 3103.15, 322.31 )
 [node name="spawner4" parent="." instance=ExtResource( 17 )]
 
 transform/pos = Vector2( 5441.31, 329.376 )
+
+[node name="killerblock" parent="." instance=ExtResource( 18 )]
+
+transform/pos = Vector2( 1661.6, 444.075 )
+
+[node name="killerblock5" parent="." instance=ExtResource( 18 )]
+
+transform/pos = Vector2( 972.748, 444.075 )
+
+[node name="killerblock1" parent="." instance=ExtResource( 18 )]
+
+transform/pos = Vector2( 2282.52, 440.465 )
+
+[node name="killerblock2" parent="." instance=ExtResource( 18 )]
+
+transform/pos = Vector2( 3109.56, 449.553 )
+
+[node name="killerblock3" parent="." instance=ExtResource( 18 )]
+
+transform/pos = Vector2( 5442.85, 443.118 )
+
+[node name="killerblock4" parent="." instance=ExtResource( 18 )]
+
+transform/pos = Vector2( 6372.87, 442.811 )
+
+[node name="timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
 
 

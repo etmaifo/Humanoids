@@ -37,37 +37,37 @@ collision/margin = 0.08
 
 [node name="head" type="Sprite" parent="."]
 
-transform/pos = Vector2( -0.663422, 16.5855 )
-transform/scale = Vector2( 3, 3 )
+transform/pos = Vector2( -5.62723, 24.4692 )
+transform/scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 1 )
 flip_h = true
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( -31.1808, 94.8691 )
-transform/scale = Vector2( 2, 2 )
+transform/pos = Vector2( -26.509, 81.7296 )
+transform/scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 flip_v = true
 
 [node name="Sprite1" type="Sprite" parent="."]
 
-transform/pos = Vector2( 26.5368, 90.8886 )
-transform/scale = Vector2( 2, 2 )
+transform/pos = Vector2( 15.4412, 82.1289 )
+transform/scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 flip_v = true
 
 [node name="Sprite2" type="Sprite" parent="."]
 
-transform/pos = Vector2( -83.591, 55.7273 )
+transform/pos = Vector2( -73.9554, 44.6317 )
 transform/rot = 90.0
-transform/scale = Vector2( 2, 2 )
+transform/scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
 [node name="Sprite3" type="Sprite" parent="."]
 
-transform/pos = Vector2( 84.2544, 50.42 )
+transform/pos = Vector2( 58.8514, 43.7043 )
 transform/rot = 90.0
-transform/scale = Vector2( 2, 2 )
+transform/scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 flip_v = true
 
@@ -83,7 +83,7 @@ _update_shape_index = 0
 transform/pos = Vector2( -54.1314, 0 )
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 40.8784, 22.7751 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 36.7906, 38.5425 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -92,7 +92,8 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
-transform/pos = Vector2( 40.8784, 22.7751 )
+transform/pos = Vector2( 36.7906, 38.5425 )
+transform/scale = Vector2( 1, 1 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
