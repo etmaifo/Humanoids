@@ -254,33 +254,24 @@ config/pitch_random = 0.0
 
 [node name="boss" parent="." instance=ExtResource( 16 )]
 
-transform/pos = Vector2( 9835.35, 167.475 )
+transform/pos = Vector2( 6492.43, 211.041 )
 transform/rot = 5.0
 transform/scale = Vector2( 2, 2 )
 
 [node name="spawner" parent="." instance=ExtResource( 17 )]
 
 transform/pos = Vector2( 898.276, 360.805 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="spawner1" parent="." instance=ExtResource( 17 )]
 
 transform/pos = Vector2( 2369.27, 360 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="spawner3" parent="." instance=ExtResource( 17 )]
 
 transform/pos = Vector2( 3103.15, 322.31 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="spawner4" parent="." instance=ExtResource( 17 )]
 
 transform/pos = Vector2( 5441.31, 329.376 )
-transform/scale = Vector2( 1, 1 )
-
-[node name="spawner5" parent="." instance=ExtResource( 17 )]
-
-transform/pos = Vector2( 6271.44, 335.403 )
-transform/scale = Vector2( 1, 1 )
 
 

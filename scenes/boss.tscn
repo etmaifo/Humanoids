@@ -29,7 +29,7 @@ tracks/0/keys = { "times":FloatArray( 0, 0.8, 1.4 ), "transitions":FloatArray( 1
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 40.0024, 9.92762 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -73,6 +73,7 @@ flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+transform/pos = Vector2( 40.0024, 9.92762 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -82,7 +83,7 @@ _update_shape_index = 0
 transform/pos = Vector2( -54.1314, 0 )
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 40.8784, 22.7751 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -91,6 +92,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
+transform/pos = Vector2( 40.8784, 22.7751 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0

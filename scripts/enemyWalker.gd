@@ -27,9 +27,6 @@ func _ready():
 	detector = get_node("detector")
 	detector.connect("body_enter", self, "_on_detector_body_enter")
 	
-	hitarea = get_node("hitarea")
-	hitarea.connect("body_enter", self, "_on_hit")
-	
 	
 	set_fixed_process(true)
 	set_process_input(true)
@@ -68,11 +65,7 @@ func _on_detector_body_enter(body):
 	velocity.y = JUMPHEIGHT
 	if body extends bullet:
 		hp -= 1
-	
 
-func _on_hit(body):
-	if body extends bullet:
-		hp -= 1
 		
 		
 func explode():
